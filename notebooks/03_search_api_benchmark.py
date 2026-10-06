@@ -36,7 +36,7 @@ proc = subprocess.Popen(
 )
 
 # Đợi server up + warm (Searcher.from_corpus loads embeddings + indexes 1000 docs)
-URL = "http://localhost:8000"
+URL = "http://127.0.0.1:8000"  # tránh độ trễ IPv6 fallback của "localhost" trên Windows
 for _ in range(60):
     try:
         r = httpx.get(f"{URL}/healthz", timeout=2.0)
